@@ -25,7 +25,7 @@ zabbix user grant create:
 
 zabbbix mysql database create:
   cmd.run:
-    - name: zcat `rpm -ql zabbix-server-mysql|grep .sql.gz` | mysql -hlocalhost -uzabbix -p"Jzd,b38@Q.R@/h)\" zabbix
+    - name: zcat `rpm -ql zabbix-server-mysql|grep .sql.gz` | mysql -hlocalhost -uzabbix -p'Jzd,b38@Q.R@/h)\' zabbix
     #- unless:
     - require:
       - mysql_grants: "zabbix user grant create"

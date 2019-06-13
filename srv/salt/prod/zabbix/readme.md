@@ -29,6 +29,7 @@ salt 'linux-node3.example.com' state.sls mysql.security saltenv='prod' -t 600
 salt 'linux-node3.example.com' state.sls zabbix.conf saltenv='prod' -t 300
 salt 'linux-node3.example.com' state.sls zabbix.mysql saltenv='prod' -t 300
 salt 'linux-node3.example.com' state.sls zabbix.service saltenv='prod' -t 300
+curl http://192.168.56.13/zabbix/setup.php
 
 salt 'linux-node3.example.com' state.sls mysql.stop saltenv='prod' -t 600
 salt 'linux-node3.example.com' state.sls mysql.rpm-uninstall saltenv='prod' -t 600
