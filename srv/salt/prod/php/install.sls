@@ -1,79 +1,29 @@
-pkg-php:
+include:
+  - ius.yum-replace-install
+#  - php.yum-replace-php #this sls,please run it once at first use hand
+
+php-install:
   pkg.installed:
     - names:
-      - mysql-devel
-      - openssl-devel
-      - swig
-      - libjpeg-turbo
-      - libjpeg-turbo-devel
-      - libpng
-      - libpng-devel
-      - freetype
-      - freetype-devel
-      - libxml2
-      - libxml2-devel
-      - zlib
-      - zlib-devel
-      - libcurl
-      - libcurl-devel
-
-php-source-install:
-  file.managed:
-    - name: /usr/local/src/php-5.6.9.tar.gz
-    - source: salt://php/files/php-5.6.9.tar.gz
-    - user: root
-    - group: root
-    - mode: 755
-
-  cmd.run:
-    - name: cd /usr/local/src && tar zxf php-5.6.9.tar.gz && cd php-5.6.9&&  ./configure --prefix=/usr/local/php-fastcgi --with-pdo-mysql=mysqlnd --with-mysqli=mysqlnd --with-mysql=mysqlnd --with-jpeg-dir --with-png-dir --with-zlib --enable-xml  --with-libxml-dir --with-curl --enable-bcmath --enable-shmop --enable-sysvsem  --enable-inline-optimization --enable-mbregex --with-openssl --enable-mbstring --with-gd --enable-gd-native-ttf --with-freetype-dir=/usr/lib64 --with-gettext=/usr/lib64 --enable-sockets --with-xmlrpc --enable-zip --enable-soap --disable-debug --enable-opcache --enable-zip --with-config-file-path=/usr/local/php-fastcgi/etc --enable-fpm --with-fpm-user=www --with-fpm-group=www && make && make install
+      - php72u-common
+      - php72u-cli
+      - php72u-pdo
+      - php72u-mysqlnd
+      - php72u-fpm
+      #- php72u-fpm-nginx
+      - php72u-opcache
+      - php72u-gd
+      - php72u-imap
+      - php72u-mbstring
+      - php72u-process
+      - php72u-xml
+      - php72u-xmlrpc
+      - php72u-json
+      #- php72u-zip yum repo has no this pkg.
+      - php72u-pspell
+      - php72u-pecl-apcu
+      - php72u-pecl-memcached
+      - php72u-ioncube-loader
     - require:
-      - file: php-source-install
-      - user: www-user-group
-    - unless: test -d /usr/local/php-fastcgi
-
-pdo-plugin:
-  cmd.run:
-    - name: cd /usr/local/src/php-5.6.9/ext/pdo_mysql/ && /usr/local/php-fastcgi/bin/phpize && ./configure --with-php-config=/usr/local/php-fastcgi/bin/php-config &&  make&& make install
-    - unless: test -f /usr/local/php-fastcgi/lib/php/extensions/*/pdo_mysql.so
-    - require:
-      - cmd: php-source-install
-
-php-ini:
-  file.managed:
-    - name: /usr/local/php-fastcgi/etc/php.ini
-    - source: salt://php/files/php.ini-production
-    - user: root
-    - group: root
-    - mode: 644
-
-
-php-fpm:
-  file.managed:
-    - name: /usr/local/php-fastcgi/etc/php-fpm.conf
-    - source: salt://php/files/php-fpm.conf.default
-    - user: root
-    - group: root
-    - mode: 644
-
-php-fastcgi-service:
-  file.managed:
-    - name: /etc/init.d/php-fpm
-    - source: salt://php/files/init.d.php-fpm
-    - user: root
-    - group: root
-    - mode: 755
-  cmd.run:
-    - name: chkconfig --add php-fpm
-    - unless: chkconfig --list | grep php-fpm
-    - require:
-      - file: php-fastcgi-service
-  service.running:
-    - name: php-fpm
-    - enable: True
-    - require:
-      - cmd: php-fastcgi-service
-    - watch:
-      - file: php-ini
-      - file: php-fpm
-
+      - pkg: "yum-plugin-replace install"
+#      - cmd: "yum replace php-common --replace-with php72u-common -y"

@@ -2,6 +2,7 @@
 name=IUS Community Packages for Enterprise Linux 7 - $basearch
 baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/ius-docker_gitlab
 #baseurl=https://dl.iuscommunity.org/pub/ius/stable/CentOS/7/$basearch
+#baseurl=https://mirrors.aliyun.com/ius/stable/CentOS/7/$basearch
 #mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos7&arch=$basearch&protocol=http
 failovermethod=priority
 enabled=1
