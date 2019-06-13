@@ -1,9 +1,9 @@
 keepalived:
-  # grains['fqdn'] = 'xt_func_srv_nu.nbnbnb.org'
+  # grains['fqdn'] = 'xt-func-srv-nu.nbnbnb.org'
 
   {% if grains['fqdn'].endswith('.nbnbnb.org') %}
     
-    {% if grains['fqdn'].startswith('xt_lb7l_haproxy') %}
+    {% if grains['fqdn'].startswith('xt-lb7l-haproxy') %}
   ROUTER_ID: haproxy_ha
   VRRP_INSTANCE: HAPROXY
   VIRTUAL_ROUTER_ID: 52
@@ -16,7 +16,7 @@ keepalived:
   PRIORITY: 100
       {% endif %}
 
-    #{% elif grains['fqdn'].startswith('xt_lb4l_lvs') %}
+    #{% elif grains['fqdn'].startswith('xt-lb4l-lvs') %}
     
     {% endif %}
 

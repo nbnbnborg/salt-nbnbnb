@@ -1,9 +1,9 @@
 lvs-keepalived:
-  # grains['fqdn'] = 'xt_func_srv_nu.nbnbnb.org'
+  # grains['fqdn'] = 'xt-func-srv-nu.nbnbnb.org'
 
   {% if grains['fqdn'].endswith('.nbnbnb.org') %}
     
-    {% if grains['fqdn'].startswith('xt_lb4l_lvs') %}
+    {% if grains['fqdn'].startswith('xt-lb4l-lvs') %}
   ROUTER_ID: lvs_ha
   VRRP_INSTANCE: LVS
   VIRTUAL_ROUTER_ID: 54
@@ -16,7 +16,7 @@ lvs-keepalived:
   PRIORITY: 100
       {% endif %}
 
-    #{% elif grains['fqdn'].startswith('xt_lb4l_lvs') %}
+    #{% elif grains['fqdn'].startswith('xt-lb4l-lvs') %}
     
     {% endif %}
 

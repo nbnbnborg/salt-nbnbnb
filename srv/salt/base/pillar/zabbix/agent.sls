@@ -1,2 +1,2 @@
 zabbix-agent:
-  Zabbix_Server: xt_monitor_zabbix_01.nbnbnb.org
+  Zabbix_Server: xt-monitor-zabbix-01.nbnbnb.org
