@@ -1,3 +1,3 @@
-haproxy install:
+keepalived install:
   pkg.installed:
-    - name: haproxy
+    - name: keepalived

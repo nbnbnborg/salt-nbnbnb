@@ -15,7 +15,11 @@ net.ipv4.ip_forward:
 #表示尽量使用内存，减少使用磁盘swap交换分区，内存速度明显高于磁盘一个数量级。
 vm.swappiness:
   sysctl.present:
+    {% if grains['productname'] == 'VMware Virtual Platform' %}
     - value: 0
+    {% else %}
+    - value: 10
+    {% endif %}
 
 #接收套接字缓冲区大小的默认值(以字节为单位)
 net.core.rmem_default:

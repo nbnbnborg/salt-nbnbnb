@@ -1,3 +1,3 @@
-haproxy uninstall:
+keepalived uninstall:
   pkg.removed:
-    - name: haproxy
+    - name: keepalived

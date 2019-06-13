@@ -1,0 +1,35 @@
+! Configuration File for keepalived
+
+global_defs {
+    notification_email {
+        {{ EMAIL_SEND }}
+    }
+
+    notification_email_from {{ EMAIL_FROM }}
+    smtp_server {{ SMTP_SERVER }}
+    smtp_connect_timeout 30
+
+    router_id {{ ROUTER_ID }}
+    
+    # I don't understand the following four lines.
+    #vrrp_skip_check_adv_addr
+    #vrrp_strict
+    #vrrp_garp_interval 0
+    #vrrp_gna_interval 0
+}
+
+vrrp_instance {{ VRRP_INSTANCE }} {
+    state {{ STATE }}
+    interface eth0
+    virtual_router_id {{ VIRTUAL_ROUTER_ID }}
+    priority {{ PRIORITY }}
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+
+    virtual_ipaddress {
+        {{ VIP }}
+    }
+}
