@@ -1,4 +1,5 @@
 include:
+  - httpd.install
   - httpd.conf
 
 httpd service:

@@ -14,9 +14,18 @@
   we should to append /etc/salt/minion.d/mysql-minion.conf,
   to let salt can manage mysql.
 
-other is normal.
 
-If direct to run mysql.security.sls without run rpm-install.sls & service.sls,
-this mysql_secure.sh will not work!
+demotest:
+salt 'linux-node2.example.com' state.sls mysql.rpm-install saltenv='prod' -t 600
+salt 'linux-node2.example.com' state.sls mysql.service saltenv='prod' -t 600
+salt 'linux-node2.example.com' state.sls mysql.security saltenv='prod' -t 600
+salt 'linux-node2.example.com' state.sls mysql.stop saltenv='prod' -t 600
+salt 'linux-node2.example.com' state.sls mysql.rpm-uninstall saltenv='prod' -t 600
 
-If want to uninstall,could direct to run rpm-uninstall.sls witout run stop.sls is OK.
+other:
+1.If direct to run mysql.security.sls without run rpm-install.sls & service.sls,
+  this mysql_secure.sh will not work!
+
+2.If want to uninstall,could direct to run rpm-uninstall.sls witout run stop.sls is OK.
+
+3.maybe need other project to add user etc.
