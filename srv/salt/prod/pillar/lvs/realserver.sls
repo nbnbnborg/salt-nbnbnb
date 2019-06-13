@@ -1,3 +1,3 @@
 lvs-realserver:
   - name: lvstest
-    vip: 192.168.36.33
+    vip: 192.168.56.10

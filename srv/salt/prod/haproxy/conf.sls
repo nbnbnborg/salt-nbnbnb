@@ -15,7 +15,7 @@
       TIMEOUT_SERVER: 1m
       MAXCONN: 3000
 
-      HAPROXY_VIP: {{ pillar['haproxy']['HAPROXY_VIP'] }}
+      HAPROXY_VIP: {{ pillar['haproxy']['HAPROXY_VIP'] }} #{{ grains['fqdn_ip4'] }}
       HAPROXY_PORT: {{ pillar['haproxy']['HAPROXY_PORT'] }}
       DEFAULT_BACKEND: {{ pillar['haproxy']['DEFAULT_BACKEND'] }}
 

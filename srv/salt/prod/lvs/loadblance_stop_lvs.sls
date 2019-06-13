@@ -1,5 +1,3 @@
-include:
-  - lvs.install
 
 # config lvs
 {% if 'lvs-loadblance' in pillar %}
@@ -18,24 +16,25 @@ include:
 
     {% set service_address = each_lvs['vip'] + ":" + each_lvs['port']|string() %}
 {{each_lvs['name']}}-service:
-  lvs_service.present:
+  lvs_service.absent:
     - protocol: {{each_lvs['protocol']}}
     - service_address: {{service_address}}
-    - scheduler: {{each_lvs['scheduler']}}
 
 # config lvs realserver_ip
     {% for each_rs in each_lvs['realservers'] %}
       {% set server_address = each_rs['ip'] + ":" + each_rs['port']|string() %}
 {{each_rs['name']}}-server:
-  lvs_server.present:
+  lvs_server.absent:
     - protocol: {{each_lvs['protocol']}}
     - service_address: {{service_address}}
     - server_address: {{server_address}}
-    - packet_forward_method: {{each_rs['packet_forward_method']}}
-    - weight: {{each_rs['weight']}}
 
     {% endfor %}
 
   {% endfor %}
 
 {% endif %}
+
+lvs uninstall:
+  pkg.removed:
+    - name: ipvsadm
