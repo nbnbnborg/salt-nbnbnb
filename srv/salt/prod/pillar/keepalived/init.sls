@@ -1,4 +1,6 @@
 keepalived:
+  # grains['fqdn'] = 'xt_func_srv_nu.nbnbnb.org'
+
   {% if grains['fqdn'].endswith('.nbnbnb.org') %}
     
     {% if grains['fqdn'].startswith('xt_lb7l_haproxy') %}

@@ -1,0 +1,4 @@
+# Provides UDP syslog reception 
+$ModLoad imudp 
+$UDPServerRun 514
+local3.*         /var/log/haproxy.log

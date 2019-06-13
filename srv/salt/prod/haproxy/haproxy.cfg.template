@@ -1,0 +1,103 @@
+#---------------------------------------------------------------------
+# Example configuration for a possible web application.  See the
+# full configuration options online.
+#
+#   https://www.haproxy.org/download/1.8/doc/configuration.txt
+#
+#---------------------------------------------------------------------
+
+#---------------------------------------------------------------------
+# Global settings
+#---------------------------------------------------------------------
+global
+    # to have these messages end up in /var/log/haproxy.log you will
+    # need to:
+    #
+    # 1) configure syslog to accept network log events.  This is done
+    #    by adding the '-r' option to the SYSLOGD_OPTIONS in
+    #    /etc/sysconfig/syslog
+    #
+    # 2) configure local2 events to go to the /var/log/haproxy.log
+    #   file. A line like the following can be added to
+    #   /etc/sysconfig/syslog
+    #
+    #    local2.*                       /var/log/haproxy.log
+    #
+    log         127.0.0.1 local2
+
+    chroot      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     4000
+    user        haproxy
+    group       haproxy
+    daemon
+
+    # turn on stats unix socket
+    stats socket /var/lib/haproxy/stats
+
+#---------------------------------------------------------------------
+# common defaults that all the 'listen' and 'backend' sections will
+# use if not designated in their block
+#---------------------------------------------------------------------
+defaults
+    mode                    http
+    log                     global
+    option                  httplog
+    option                  dontlognull
+    option http-server-close
+    option forwardfor       except 127.0.0.0/8
+    option                  redispatch
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         {{ TIMEOUT_CONNECT }}
+    timeout client          {{ TIMEOUT_CLIENT }}
+    timeout server          {{ TIMEOUT_SERVER }}
+    timeout http-keep-alive 10s
+    timeout check           10s
+    maxconn                 {{ MAXCONN }}
+
+#---------------------------------------------------------------------
+# main frontend which proxys to the backends
+#---------------------------------------------------------------------
+frontend main
+    bind {{ HAPROXY_VIP }}:{{ HAPROXY_PORT }}
+    #acl url_static       path_beg       -i /static /images /javascript /stylesheets
+    #acl url_static       path_end       -i .jpg .gif .png .css .js
+
+    #use_backend static          if url_static
+
+    mode http
+    option httplog
+    log global
+    default_backend         {{ DEFAULT_BACKEND }}
+
+#---------------------------------------------------------------------
+# static backend for serving up images, stylesheets and such
+#---------------------------------------------------------------------
+#backend static
+#    balance     roundrobin
+#    server      static 127.0.0.1:4331 check
+
+#---------------------------------------------------------------------
+# round robin balancing between the various backends
+#---------------------------------------------------------------------
+backend {{ DEFAULT_BACKEND }}
+    balance     {{ BALANCE }}
+
+    option forwardfor header X-REAL-IP
+    option httpchk HEAD / HTTP/1.0
+
+    server {{ REAL_SERVER_1_NAME }} {{ REAL_SERVER_1_IP }}:{{ REAL_SERVER_1_PORT }} check inter 2000 rise 30 fall 15
+    server {{ REAL_SERVER_2_NAME }} {{ REAL_SERVER_2_IP }}:{{ REAL_SERVER_2_PORT }} check inter 2000 rise 30 fall 15
+
+#---------------------------------------------------------------------
+# status mod
+#---------------------------------------------------------------------
+listen stats
+    mode http
+    bind 0.0.0.0:8888
+    stats enable
+    stats uri     /haproxy-status 
+    stats auth    haproxy:nbnbnb.org
+
