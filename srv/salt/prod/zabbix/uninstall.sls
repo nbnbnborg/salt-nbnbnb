@@ -10,6 +10,7 @@ zabbix40-server uninstall:
   pkg.removed:
     - names:
       - zabbix-server
+      - zabbix-sender
       - zabbix-web
       - zabbix-server-mysql
       - zabbix-web-mysql
@@ -18,3 +19,4 @@ zabbix40-server uninstall:
       - zabbix-get
       - zabbix-java-gateway
       - zabbix-proxy-mysql
+

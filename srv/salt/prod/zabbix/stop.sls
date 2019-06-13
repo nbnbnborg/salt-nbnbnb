@@ -1,4 +1,10 @@
-soft stop:
+zabbix-server stop:
   service.dead:
-    - name: soft
+    - name: zabbix-server
     - enable: False
+
+zabbix httpd stop:
+  service.dead:
+    - name: httpd
+    - enable: False
+
