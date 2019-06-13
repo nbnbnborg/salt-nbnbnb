@@ -1,9 +1,9 @@
-/etc/yum.repos.d/mysql56-community.repo:
-  file.managed:
-    - source: salt://init/files/mysql56-community.repo
-    - user: root
-    - group: root
-    - mode: 644
+#/etc/yum.repos.d/mysql56-community.repo:
+#  file.managed:
+#    - source: salt://init/files/mysql56-community.repo
+#    - user: root
+#    - group: root
+#    - mode: 644
 
 /etc/yum.repos.d/mysql57-community.repo:
   file.managed:

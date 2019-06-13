@@ -2,6 +2,7 @@
 name=Zabbix Official Repository - $basearch
 baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/zabbix-4.0
 #baseurl=http://repo.zabbix.com/zabbix/4.0/rhel/7/$basearch/
+#baseurl=https://mirrors.aliyun.com/zabbix/zabbix/4.0/rhel/7/x86_64/
 failovermethod=priority
 enabled=1
 gpgcheck=0
@@ -11,6 +12,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
 name=Zabbix Official Repository non-supported - $basearch
 baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/zabbix-non-supported
 #baseurl=http://repo.zabbix.com/non-supported/rhel/7/$basearch/
+#baseurl=https://mirrors.aliyun.com/zabbix/non-supported/rhel/7/x86_64/
 failovermethod=priority
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX

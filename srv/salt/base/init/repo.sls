@@ -1,3 +1,5 @@
+#first run need to run twice.
+
 yum_base_repo_dir:
   cmd.run:
     - name: mv /etc/yum.repos.d /etc/yum.repos.d.bak
@@ -22,6 +24,5 @@ include:
   - init.repo_zabbix
   - init.repo_saltstack
   - init.repo_nginx
-  - init.repo_php_webtatic
   - init.repo_mysql
   - init.repo_ius

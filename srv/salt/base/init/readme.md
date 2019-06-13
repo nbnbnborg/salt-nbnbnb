@@ -20,3 +20,17 @@ program start at env_init.sls
 #systemctl restart salt-master
 #systemctl restart salt-minion
 
+#maybe need require other.
+salt 'linux-node3.example.com' state.sls init.audit saltenv='base'
+salt 'linux-node3.example.com' state.sls init.basesoft saltenv='base'
+salt 'linux-node3.example.com' state.sls init.dns saltenv='base'
+salt 'linux-node3.example.com' state.sls init.firewall saltenv='base'
+salt 'linux-node3.example.com' state.sls init.limit saltenv='base'
+salt 'linux-node3.example.com' state.sls init.profile saltenv='base'
+salt 'linux-node3.example.com' state.sls init.repo saltenv='base'
+salt 'linux-node3.example.com' state.sls init.repo saltenv='base'
+salt 'linux-node3.example.com' state.sls init.selinux saltenv='base'
+salt 'linux-node3.example.com' state.sls init.service_down saltenv='base'
+salt 'linux-node3.example.com' state.sls init.ssh saltenv='base'
+salt 'linux-node3.example.com' state.sls init.sysctl saltenv='base'
+salt 'linux-node3.example.com' state.sls init.user saltenv='base'

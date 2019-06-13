@@ -15,3 +15,8 @@
   to let salt can manage mysql.
 
 other is normal.
+
+If direct to run mysql.security.sls without run rpm-install.sls & service.sls,
+this mysql_secure.sh will not work!
+
+If want to uninstall,could direct to run rpm-uninstall.sls witout run stop.sls is OK.
