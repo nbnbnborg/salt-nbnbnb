@@ -22,7 +22,7 @@ php-uninstall:
 
 yum replace php72u-common --replace-with php-common -y:
   cmd.run:
-    - unless: test ${rpm -q php72u-common} = 1
+    - unless: test $[rpm -q php72u-common] = 1
 
 include:
   - ius.yum-replace-uninstall
