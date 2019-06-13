@@ -1,3 +1,5 @@
+also i can add a lvs-keepalived project.
+
 1.install
 
 2.conf
@@ -11,6 +13,8 @@
 
 5.uninstall
 
+see python code:
+ll /usr/lib/python2.7/site-packages/salt/states|grep lvs
 
 demotest:
 in test demo,
