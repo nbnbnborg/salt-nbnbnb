@@ -1,7 +1,17 @@
 [mysql57-community]
 name=MySQL 5.7 Community Server
+
+{% if grains['fqdn'].endswith('nbnbnb.org') %}
 baseurl=http://xt-cobbler-yum-01.nbnbnb.org/mysql57-community
         http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
+        http://mirrors.163.com/mysql/Downloads/MySQL-5.7/
+
+{% elif grains['fqdn'].endswith('example.com') %}
+baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
+#       http://mirrors.163.com/mysql/Downloads/MySQL-5.7/
+
+{% endif %}
+
 failovermethod=priority
 enabled=1
 gpgcheck={{ GPGCHECK }}

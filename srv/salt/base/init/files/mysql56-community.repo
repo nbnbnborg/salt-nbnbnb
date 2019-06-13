@@ -2,6 +2,7 @@
 name=MySQL 5.6 Community Server
 baseurl=http://xt-cobbler-yum-01.nbnbnb.org/mysql56-community
         http://repo.mysql.com/yum/mysql-5.6-community/el/7/$basearch/
+        http://mirrors.163.com/mysql/Downloads/MySQL-5.6/
 failovermethod=priority
 enabled=1
 gpgcheck=0

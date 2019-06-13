@@ -22,7 +22,7 @@ program start at env_init.sls
 #systemctl restart salt-master
 #systemctl restart salt-minion
 
-#maybe need require other.
+# debug func : maybe need require other.
 salt 'linux-node3.example.com' state.sls init.audit saltenv='base'
 salt 'linux-node3.example.com' state.sls init.basesoft saltenv='base'
 salt 'linux-node3.example.com' state.sls init.chrony saltenv='base'
@@ -40,9 +40,5 @@ salt 'linux-node3.example.com' state.sls init.user saltenv='base'
 # Now,above code is equal to follow.
 salt 'linux-node2.example.com' state.sls init.env_init saltenv='base' -t 600
 # when in company,well has 7 Failed,please pass it.bacause of yum cache error to make.
-# Special case,i in company.
-salt 'linux-node2.example.com' state.sls init.repo_replace_url saltenv='base' -t 300
-# Remedy 7 Failed function.
-salt 'linux-node2.example.com' state.sls init.repo_zabbix saltenv='base' -t 600
-salt 'linux-node2.example.com' state.sls init.repo_replace_url saltenv='base' -t 300
+# when 2 Failed,setenforce auditd. is OK. 
 

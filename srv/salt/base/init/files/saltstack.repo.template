@@ -1,14 +1,18 @@
+{% if grains['fqdn'].endswith('nbnbnb.org') %}
 [{{ SALTSTACK_VERSION }}]
 name={{ SALTSTACK_VERSION }}
 baseurl=http://xt-cobbler-yum-01.nbnbnb.org/{{ SALTSTACK_VERSION }}
 
-#[saltstack-2018.3]
-#name=saltstack-2018.3
-#baseurl=http://192.168.56.11/saltstack2018.3
+{% elif grains['fqdn'].endswith('example.com') %}
+[saltstack-2018.3]
+name=saltstack-2018.3
+baseurl=http://192.168.56.11/saltstack2018.3
 
-# [saltstack-repo]
-# name=SaltStack repo for RHEL/CentOS $releasever
-# baseurl=https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest
+{% else %}
+[saltstack-repo]
+name=SaltStack repo for RHEL/CentOS $releasever
+baseurl=https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest
+{% endif %}
 
 failovermethod=priority
 enabled=1
