@@ -25,6 +25,7 @@ rm -rf /etc/salt/minion_id && systemctl restart salt-minion
 
 salt-key -A
 salt 'xt_docker_harbor_01.nbnbnb.org' test.ping
+salt 'xt_docker_harbor_01.nbnbnb.org' state.sls docker.service saltenv='prod' -t 300
 salt 'xt_docker_harbor_01.nbnbnb.org' state.sls harbor.install saltenv='prod' -t 300
 salt 'xt_docker_harbor_01.nbnbnb.org' state.sls harbor.conf saltenv='prod' -t 300
 salt 'xt_docker_harbor_01.nbnbnb.org' state.sls harbor.script_install saltenv='prod' -t 300

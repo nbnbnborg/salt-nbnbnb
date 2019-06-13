@@ -15,7 +15,8 @@ Systemd Unit for docker:
       # or -H tcp://0.0.0.0:2375
       # harbor mirror : only http use? example: domain.com or IP:PORT ,sug use https mirror.
       # ps -ef|grep docker check !
-      INSECURE_REGISTRIES: xt_docker_harbor_01.nbnbnb.org
+      #INSECURE_REGISTRIES: xt_docker_harbor_01.nbnbnb.org
+      INSECURE_REGISTRIES: 192.168.56.235:80
 
 docker systemctl daemon-reload:
   cmd.run:
