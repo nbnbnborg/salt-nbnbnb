@@ -19,3 +19,8 @@ docker-ce uninstall:
       - setools-libs
     - require:
       - service: "docker stop"
+
+un docker network net.ipv4.ip_forward:
+  sysctl.present:
+    - name: net.ipv4.ip_forward
+    - value: 0

@@ -8,8 +8,15 @@ RemainAfterExit=yes
 StandardError=null
 StandardOutput=null
 WorkingDirectory=/opt/harbor
-ExecStart=/usr/local/bin/docker-compose -f /opt/harbor/docker-compose.yml -f /opt/harbor/docker-compose.notary.yml -f /opt/harbor/docker-compose.clair.yml -f /opt/harbor/docker-compose.chartmuseum.yml up -d
-ExecStop=/usr/local/bin/docker-compose -f /opt/harbor/docker-compose.yml -f /opt/harbor/docker-compose.notary.yml -f /opt/harbor/docker-compose.clair.yml -f /opt/harbor/docker-compose.chartmuseum.yml down
+
+ExecStartPre=/usr/local/bin/docker-compose down -v
+ExecStartPre=/usr/bin/python /opt/harbor/prepare
+
+ExecStart=/usr/local/bin/docker-compose -f /opt/harbor/docker-compose.yml up -d
+ExecStop=/usr/local/bin/docker-compose -f /opt/harbor/docker-compose.yml down
+
+#ExecStart=/usr/local/bin/docker-compose -f /opt/harbor/docker-compose.yml -f /opt/harbor/docker-compose.notary.yml -f /opt/harbor/docker-compose.clair.yml -f /opt/harbor/docker-compose.chartmuseum.yml up -d
+#ExecStop=/usr/local/bin/docker-compose -f /opt/harbor/docker-compose.yml -f /opt/harbor/docker-compose.notary.yml -f /opt/harbor/docker-compose.clair.yml -f /opt/harbor/docker-compose.chartmuseum.yml down
 
 [Install]
 WantedBy=multi-user.target

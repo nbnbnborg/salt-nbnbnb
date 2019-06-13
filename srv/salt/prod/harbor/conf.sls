@@ -24,8 +24,8 @@ harbor systemctl daemon-reload:
     - group: root
     - mode: 644
     - defaults:
-      #HOSTNAME: xt_docker_harbor_01.nbnbnb.org
-      HOSTNAME: 192.168.56.235
+      HOSTNAME: xt_docker_harbor_01.nbnbnb.org
+      #HOSTNAME: 192.168.56.235
       # use https need crt file ; need file.managed 2files!
       UI_URL_PROTOCOL: http
       SSL_CERT: /data/cert/server.crt

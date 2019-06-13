@@ -29,3 +29,8 @@ harbor offline install:
     - require:
       - file: "harbor offline install"
     - unless: test ${test -d /opt/harbor} = 0
+
+docker network net.ipv4.ip_forward:
+  sysctl.present:
+    - name: net.ipv4.ip_forward
+    - value: 1

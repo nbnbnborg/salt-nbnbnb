@@ -237,10 +237,10 @@
 192.168.56.234 xt_cicd_gitlab-jenkins_02.nbnbnb.org
 192.168.56.235 xt_docker_harbor_01.nbnbnb.org
 192.168.56.236 xt_docker_harbor_02.nbnbnb.org
-192.168.56.237 xt_kubernets_master_01.nbnbnb.org
-192.168.56.238 xt_kubernets_master_02.nbnbnb.org
-192.168.56.239 xt_kubernets_node_01.nbnbnb.org
-192.168.56.240 xt_kubernets_node_02.nbnbnb.org
+192.168.56.237 xt_kubernetes_master_01.nbnbnb.org
+192.168.56.238 xt_kubernetes_master_02.nbnbnb.org
+192.168.56.239 xt_kubernetes_node_01.nbnbnb.org
+192.168.56.240 xt_kubernetes_node_02.nbnbnb.org
 # 192.168.56.241 .nbnbnb.org
 # 192.168.56.242 .nbnbnb.org
 # 192.168.56.243 .nbnbnb.org
