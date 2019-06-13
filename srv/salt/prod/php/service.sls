@@ -15,14 +15,10 @@ php-fpm service:
       - file: /etc/php-fpm.d
       - file: /etc/php.d
       - file: /etc/php-zts.d
-
-#    - watch:
-#      - file:
- #       - names:
-  #        - /etc/php-fpm.conf
-   #       - /etc/php-fpm.d/www.conf
-    #      - /etc/php.ini
-     #     - /etc/php-fpm.d
-      #    - /etc/php.d
-       #   - /etc/php-zts.d
-
+    - watch:
+      - file: /etc/php-fpm.conf
+      - file: /etc/php-fpm.d/www.conf
+      - file: /etc/php.ini
+      - file: /etc/php-fpm.d
+      - file: /etc/php.d
+      - file: /etc/php-zts.d

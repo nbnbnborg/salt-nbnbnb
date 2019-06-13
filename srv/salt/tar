@@ -4,8 +4,8 @@ sz ~/srv${date +"%Y-%m-%d"}.tar.gz
 cd -
 
 cd /
-tar -cvf ~/srv`date +"%Y-%m-%d"`.tar.gz srv
-sz ~/srv`date +"%Y-%m-%d"`.tar.gz
+tar -cvf ~/srv`date +"%Y-%m-%d-%H"`.tar.gz srv
+sz ~/srv`date +"%Y-%m-%d-%H"`.tar.gz
 cd -
 
 tar xf ...
