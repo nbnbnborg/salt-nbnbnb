@@ -1,0 +1,10 @@
+[saltstack-2019.2]
+name=saltstack-2019.2
+baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/saltstack-2019.2
+# [saltstack-repo]
+# name=SaltStack repo for RHEL/CentOS $releasever
+# baseurl=https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest
+failovermethod=priority
+enabled=1
+gpgcheck=0
+# gpgkey=https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest/SALTSTACK-GPG-KEY.pub

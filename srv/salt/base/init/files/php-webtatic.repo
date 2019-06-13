@@ -1,0 +1,8 @@
+[webtatic]
+name=Webtatic Repository EL7 - $basearch
+baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/php-webtatic
+#baseurl=https://repo.webtatic.com/yum/el7/$basearch/
+#mirrorlist=https://mirror.webtatic.com/yum/el7/$basearch/mirrorlist
+failovermethod=priority
+enabled=1
+gpgcheck=0
