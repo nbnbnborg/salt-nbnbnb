@@ -1,9 +1,13 @@
-/etc/yum.repos.d/epel-7.repo:
+epel 7 repo:
   file.managed:
-    - source: salt://init/files/epel-7.repo
+    - name: /etc/yum.repos.d/epel.repo
+    - source: salt://init/files/epel-7.repo.template
+    - template: jinja
     - user: root
     - group: root
     - mode: 644
+    - default:
+      GPGCHECK: 1
 
 # yum_epel_repo:   #其实epel这里也应该是file.append，因为相关的rpm包也应该是我们从官网搞的做成的一个yum仓库
 #   pkg.installed:

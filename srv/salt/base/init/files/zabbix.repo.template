@@ -5,7 +5,7 @@ baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/zabbix-4.0
 #baseurl=https://mirrors.aliyun.com/zabbix/zabbix/4.0/rhel/7/x86_64/
 failovermethod=priority
 enabled=1
-gpgcheck=0
+gpgcheck={{ GPGCHECK }}
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
 
 [zabbix-non-supported]
@@ -16,4 +16,4 @@ baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/zabbix-non-supported
 failovermethod=priority
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
-gpgcheck=0
+gpgcheck={{ GPGCHECK }}

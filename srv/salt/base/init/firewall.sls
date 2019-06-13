@@ -1,8 +1,8 @@
-firewalld-stop:
+firewalld stop:
   service.dead:
     - name: firewalld
     - enable: False
 
-firewalld-disabled:
+firewalld disabled:
   service.disabled:
     - name: firewalld

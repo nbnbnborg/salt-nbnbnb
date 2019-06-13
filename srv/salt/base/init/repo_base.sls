@@ -1,9 +1,14 @@
-/etc/yum.repos.d/base.repo:
+base 7 repo:
   file.managed:
+    - name: /etc/yum.repos.d/base.repo.template
     - source: salt://init/files/base.repo
+    - template: jinja
     - user: root
     - group: root
     - mode: 644
+    - unless: test ${test -f /etc/yum.repos.d/CentOS-Base.repo} = 0
+    - default:
+      GPGCHECK: 0
 
 # yum_base_repo_file:
 #   file.append:

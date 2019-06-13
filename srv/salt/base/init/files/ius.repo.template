@@ -6,7 +6,7 @@ baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/ius-docker_gitlab
 #mirrorlist=https://mirrors.iuscommunity.org/mirrorlist?repo=ius-centos7&arch=$basearch&protocol=http
 failovermethod=priority
 enabled=1
-gpgcheck=0
+gpgcheck={{ GPGCHECK }}
 gpgkey=file:///etc/pki/rpm-gpg/IUS-COMMUNITY-GPG-KEY
 
 # [ius-debuginfo]

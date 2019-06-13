@@ -23,14 +23,21 @@ program start at env_init.sls
 #maybe need require other.
 salt 'linux-node3.example.com' state.sls init.audit saltenv='base'
 salt 'linux-node3.example.com' state.sls init.basesoft saltenv='base'
+salt 'linux-node3.example.com' state.sls init.chrony saltenv='base'
 salt 'linux-node3.example.com' state.sls init.dns saltenv='base'
 salt 'linux-node3.example.com' state.sls init.firewall saltenv='base'
 salt 'linux-node3.example.com' state.sls init.limit saltenv='base'
 salt 'linux-node3.example.com' state.sls init.profile saltenv='base'
-salt 'linux-node3.example.com' state.sls init.repo saltenv='base'
 salt 'linux-node3.example.com' state.sls init.repo saltenv='base'
 salt 'linux-node3.example.com' state.sls init.selinux saltenv='base'
 salt 'linux-node3.example.com' state.sls init.service_down saltenv='base'
 salt 'linux-node3.example.com' state.sls init.ssh saltenv='base'
 salt 'linux-node3.example.com' state.sls init.sysctl saltenv='base'
 salt 'linux-node3.example.com' state.sls init.user saltenv='base'
+
+# Now,above code is equal to follow.
+salt 'linux-node3.example.com' state.sls init.env_init saltenv='base' -t 600
+# Special case,i in company.
+salt 'linux-node3.example.com' state.sls init.repo_replace_url saltenv='base' -t 300
+
+
