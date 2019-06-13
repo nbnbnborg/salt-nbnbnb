@@ -1,5 +1,5 @@
 include:
-  - harbor.service
+  - harbor.conf
 
 harbor script:
   cmd.run:

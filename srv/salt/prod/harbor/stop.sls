@@ -1,4 +1,4 @@
-soft stop:
+harbor stop:
   service.dead:
-    - name: soft
+    - name: harbor
     - enable: False
