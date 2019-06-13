@@ -24,17 +24,20 @@ demotest:
 rm -rf /etc/salt/minion_id && systemctl restart salt-minion
 
 salt-key -A
-salt 'xt_docker_harbor_01.nbnbnb.org' test.ping
-salt 'xt_docker_harbor_01.nbnbnb.org' state.sls docker.service saltenv='prod' -t 300
-salt 'xt_docker_harbor_01.nbnbnb.org' state.sls harbor.install saltenv='prod' -t 300
-salt 'xt_docker_harbor_01.nbnbnb.org' state.sls harbor.conf saltenv='prod' -t 300
-salt 'xt_docker_harbor_01.nbnbnb.org' state.sls harbor.script_install saltenv='prod' -t 300
-salt 'xt_docker_harbor_01.nbnbnb.org' state.sls harbor.stop saltenv='prod' -t 300
-salt 'xt_docker_harbor_01.nbnbnb.org' state.sls harbor.service saltenv='prod' -t 300
-salt 'xt_docker_harbor_01.nbnbnb.org' state.sls harbor.stop saltenv='prod' -t 300
-curl http://xt_docker_harbor_01.nbnbnb.org -u admin:harbor.nbnbnb
+salt 'xt-docker-harbor-01.nbnbnb.org' test.ping
+salt 'xt-docker-harbor-01.nbnbnb.org' state.sls docker.service saltenv='prod' -t 300
+salt 'xt-docker-harbor-01.nbnbnb.org' state.sls harbor.install saltenv='prod' -t 300
+salt 'xt-docker-harbor-01.nbnbnb.org' state.sls harbor.conf saltenv='prod' -t 300
+salt 'xt-docker-harbor-01.nbnbnb.org' state.sls harbor.script_install saltenv='prod' -t 300
 
-[root@xt_docker_harbor_01 /opt/harbor]# docker login http://xt_docker_harbor_01.nbnbnb.org:80 -u admin -p harbor.nbnbnb
+# chrome add ca.crt 
+
+salt 'xt-docker-harbor-01.nbnbnb.org' state.sls harbor.stop saltenv='prod' -t 300
+salt 'xt-docker-harbor-01.nbnbnb.org' state.sls harbor.service saltenv='prod' -t 300
+salt 'xt-docker-harbor-01.nbnbnb.org' state.sls harbor.stop saltenv='prod' -t 300
+curl https://xt-docker-harbor-01.nbnbnb.org -u admin:harbor.nbnbnb
+
+[root@xt_docker_harbor_01 /opt/harbor]# docker login http://xt-docker-harbor-01.nbnbnb.org:80 -u admin -p harbor.nbnbnb
 WARNING! Using --password via the CLI is insecure. Use --password-stdin.
-Error response from daemon: Get https://xt_docker_harbor_01.nbnbnb.org:80/v2/: http: server gave HTTP response to HTTPS client
+Error response from daemon: Get https://xt-docker-harbor-01.nbnbnb.org:80/v2/: http: server gave HTTP response to HTTPS client
 

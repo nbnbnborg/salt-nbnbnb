@@ -1,4 +1,4 @@
-kernal repo:
+kernel repo:
   file.managed:
     - name: /etc/yum.repos.d/elrepo.repo
     - source: salt://init/files/elrepo.repo.template

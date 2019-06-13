@@ -235,8 +235,8 @@
 192.168.56.232 xt_fortress_vpn_02.nbnbnb.org
 192.168.56.233 xt_cicd_gitlab-jenkins_01.nbnbnb.org
 192.168.56.234 xt_cicd_gitlab-jenkins_02.nbnbnb.org
-192.168.56.235 xt_docker_harbor_01.nbnbnb.org
-192.168.56.236 xt_docker_harbor_02.nbnbnb.org
+192.168.56.235 xt-docker-harbor-01.nbnbnb.org
+192.168.56.236 xt-docker-harbor-02.nbnbnb.org
 
 # a DNS-1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
 

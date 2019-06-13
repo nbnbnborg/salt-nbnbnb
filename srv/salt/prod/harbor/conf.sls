@@ -24,10 +24,10 @@ harbor systemctl daemon-reload:
     - group: root
     - mode: 644
     - defaults:
-      HOSTNAME: xt_docker_harbor_01.nbnbnb.org
+      HOSTNAME: xt-docker-harbor-01.nbnbnb.org
       #HOSTNAME: 192.168.56.235
       # use https need crt file ; need file.managed 2files!
-      UI_URL_PROTOCOL: http
+      UI_URL_PROTOCOL: https
       SSL_CERT: /data/cert/server.crt
       SSL_CERT_KEY: /data/cert/server.key
       SECRETKEY_PATH: /data
@@ -35,13 +35,29 @@ harbor systemctl daemon-reload:
       # postgresql
       DB_PASSWORD: harbor.pgsql
  
-#/data:
-#  file.directory:
-#    - user: root
-#    - group: root
-#    - dir_mode: 755
-#    - file_mode: 644
-#    - recurse:
-#      - user
-#      - group
-#      - mode
+/data/cert:
+  file.directory:
+    - user: root
+    - group: root
+    - dir_mode: 755
+    - file_mode: 644
+    - recurse:
+      - user
+      - group
+      - mode
+    - makedirs: True
+
+/data/cert/server.crt:
+  file.managed:
+    - source: salt://harbor/nbnbnb.org.crt
+    - user: root
+    - group: root
+    - mode: 600
+
+/data/cert/server.key:
+  file.managed:
+    - source: salt://harbor/nbnbnb.org.key
+    - user: root
+    - group: root
+    - mode: 600
+

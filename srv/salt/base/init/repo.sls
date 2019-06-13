@@ -26,7 +26,6 @@ include:
   - init.repo_nginx
   - init.repo_mysql
   - init.repo_ius
-  - init.repo_kernel
 
   # Special case,i in company.
   #- init.repo_replace_url

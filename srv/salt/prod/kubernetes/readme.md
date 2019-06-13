@@ -64,10 +64,7 @@ wanye的优点。
   iptables&firewalld off
   selinux off
   swapoff -a
-
-  repo.
-
-
+  repo
 
 
 

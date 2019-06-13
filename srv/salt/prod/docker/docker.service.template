@@ -11,7 +11,7 @@ Type=notify
 # the default is not to use systemd for cgroups because the delegate issues still
 # exists and systemd currently does not support the cgroup feature set required
 # for containers run by docker
-{% if grains['fqdn'].startswith('xt_docker_harbor') %}
+{% if grains['fqdn'].startswith('xt-docker-harbor') %}
 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --registry-mirror={{ REGISTRY_MIRROR }}
 {% else %}
 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --registry-mirror={{ REGISTRY_MIRROR }} --insecure-registry={{ INSECURE_REGISTRIES }}

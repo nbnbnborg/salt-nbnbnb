@@ -37,7 +37,7 @@ baseurl=https://mirrors.tuna.tsinghua.edu.cn/elrepo/kernel/el7/$basearch/
 	http://repos.lax-noc.com/elrepo/kernel/el7/$basearch/
 	http://mirror.ventraip.net.au/elrepo/kernel/el7/$basearch/
 mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-kernel.el7
-enabled=0
+enabled=1
 gpgcheck={{ GPGCHECK }}
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
 protect=0

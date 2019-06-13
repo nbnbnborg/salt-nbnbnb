@@ -15,12 +15,23 @@ Systemd Unit for docker:
       # or -H tcp://0.0.0.0:2375
       # harbor mirror : only http use? example: domain.com or IP:PORT ,sug use https mirror.
       # ps -ef|grep docker check !
-      #INSECURE_REGISTRIES: xt_docker_harbor_01.nbnbnb.org
-      INSECURE_REGISTRIES: 192.168.56.235:80
+      INSECURE_REGISTRIES: xt-docker-harbor-01.nbnbnb.org
+      #INSECURE_REGISTRIES: 192.168.56.235:80
+
+# Host trust
+#/etc/pki/ca-trust/source/anchors/ca.crt:
+/etc/docker/certs.d/xt-docker-harbor-01.nbnbnb.org/ca.crt:
+  file.managed:
+    - source: salt://harbor/ca.crt
+    - user: root
+    - group: root
+    - mode: 644
+    - makedirs: True
 
 docker systemctl daemon-reload:
   cmd.run:
     - name: systemctl daemon-reload
     - require:
       - file: "Systemd Unit for docker"
+
 

@@ -2,7 +2,7 @@ docker-compose install:
   file.managed:
     - name: /usr/local/bin/docker-compose
     # wget https://mirrors.aliyun.com/docker-toolbox/linux/compose/1.21.2/docker-compose-Linux-x86_64
-    - source: salt://harbour/docker-compose-Linux-x86_64
+    - source: salt://harbor/docker-compose-Linux-x86_64
     - user: root
     - group: root
     - mode: 755
