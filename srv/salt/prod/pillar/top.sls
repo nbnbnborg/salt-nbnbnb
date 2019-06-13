@@ -1,6 +1,6 @@
 prod:
 #  'lvs':
-#    - lvs.loadblance
+#    - lvs.loadbalance
 #  'web-*':
 #    - lvs.realserver
 
@@ -8,3 +8,8 @@ prod:
     - match: pcre
     - keepalived
     - haproxy
+
+  'linux-node(1|2|3).example.com':
+    - match: pcre
+    - lvs.loadbalance
+    - lvs.realserver

@@ -1,3 +1,4 @@
+{% if grains['fqdn'].endswith('.example.com') %}
 lvs-loadblance:
   - name: lvstest
     vip: 192.168.56.10
@@ -16,4 +17,5 @@ lvs-loadblance:
         port: 80
         packet_forward_method: dr
         weight: 30 
+{% endif %}
         

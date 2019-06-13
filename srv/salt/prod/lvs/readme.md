@@ -27,14 +27,13 @@ salt 'linux-node1.example.com' state.sls lvs.loadbalance saltenv='prod'
 salt -E 'linux-node(1|2|3).example.com' cmd.run "ip addr show eth0"
 #ip -c addr show eth0
 
-curl 192.168.56.10:80 -I
-curl 192.168.56.10:80 -I
+salt -E 'linux-node(2|3).example.com' cmd.run "curl 192.168.56.10:80"
 salt 'linux-node2.example.com' state.sls lvs.realserver_stop_vip saltenv='prod'
-curl 192.168.56.10:80 -I
-curl 192.168.56.10:80 -I
+salt -E 'linux-node(2|3).example.com' cmd.run "curl 192.168.56.10:80"
+salt -E 'linux-node(2|3).example.com' cmd.run "curl 192.168.56.10:80"
 salt 'linux-node3.example.com' state.sls lvs.realserver_stop_vip saltenv='prod'
-curl 192.168.56.10:80 -I
-salt 'linux-node1.example.com' state.sls lvs.loadblance_stop_lvs saltenv='prod'
+salt -E 'linux-node(2|3).example.com' cmd.run "curl 192.168.56.10:80"
+salt 'linux-node1.example.com' state.sls lvs.loadbalance_stop_lvs saltenv='prod'
 
 salt -E 'linux-node(2|3).example.com' state.sls nginx.uninstall saltenv='prod'
 
