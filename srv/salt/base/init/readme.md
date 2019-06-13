@@ -42,3 +42,4 @@ salt 'linux-node2.example.com' state.sls init.env_init saltenv='base' -t 600
 # when in company,well has 7 Failed,please pass it.bacause of yum cache error to make.
 # when 2 Failed,setenforce auditd. is OK. 
 
+# saltstack.service

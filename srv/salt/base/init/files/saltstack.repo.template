@@ -2,6 +2,7 @@
 [{{ SALTSTACK_VERSION }}]
 name={{ SALTSTACK_VERSION }}
 baseurl=http://xt-cobbler-yum-01.nbnbnb.org/{{ SALTSTACK_VERSION }}
+        https://mirrors.aliyun.com/saltstack/yum/redhat/7/x86_64/2019.2
 
 {% elif grains['fqdn'].endswith('example.com') %}
 [saltstack-2018.3]
