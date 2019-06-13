@@ -13,3 +13,5 @@ prod:
     - match: pcre
     - lvs.loadbalance
     - lvs.realserver
+    #
+    - lvs-keepalived

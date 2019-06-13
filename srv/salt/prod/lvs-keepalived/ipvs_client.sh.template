@@ -1,0 +1,45 @@
+#!/bin/bash
+#ipvs_client.sh
+source /etc/init.d/functions 
+VIP=(
+    10.0.0.3
+)
+start(){
+    for ((i=0;i<${#VIP[@]};i++))
+    do
+        ifconfig lo:$i ${VIP[$i]} netmask 255.255.255.255 up
+        route add -host ${VIP[$i]} dev lo
+    done
+    echo "1" >/proc/sys/net/ipv4/conf/lo/arp_ignore
+    echo "2" >/proc/sys/net/ipv4/conf/lo/arp_announce
+    echo "1" >/proc/sys/net/ipv4/conf/all/arp_ignore
+    echo "2" >/proc/sys/net/ipv4/conf/all/arp_announce
+}
+
+stop(){
+    for ((i=0;i<${#VIP[@]};i++))
+    do
+        ifconfig lo:$i ${VIP[$i]} netmask 255.255.255.255 down
+        route del -host ${VIP[$i]} dev lo
+    done
+    if [ ${#VIP[@]} -le 1 ];then
+        echo "0" >/proc/sys/net/ipv4/conf/lo/arp_ignore
+        echo "0" >/proc/sys/net/ipv4/conf/lo/arp_announce
+        echo "0" >/proc/sys/net/ipv4/conf/all/arp_ignore
+        echo "0" >/proc/sys/net/ipv4/conf/all/arp_announce
+    fi
+}
+
+case "$1" in 
+start)
+    action "realserver vip is tied" /bin/true
+    start
+;;
+stop)
+    action "realserver vip is canceled" /bin/true
+    stop
+;;
+*)
+    echo "Usage:$0 {start|stop}"
+;;
+esac
