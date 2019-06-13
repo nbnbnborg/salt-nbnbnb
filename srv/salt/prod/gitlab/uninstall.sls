@@ -14,7 +14,7 @@ gitlab-ce uninstall:
             gitlab-ctl stop && \
             gitlab-ctl remove-accounts && \
             gitlab-ctl cleanse && \
-            rpm -e gitlab-ce && \
+            rpm -e --nodeps gitlab-ce && \
             systemctl stop gitlab-runsvdir && \
             find / -name gitlab | xargs rm -rf
 
