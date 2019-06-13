@@ -1,0 +1,8 @@
+[gitlab-ce]
+name=gitlab-ce
+baseurl=http://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7
+        https://packages.gitlab.com/gitlab/gitlab-ce/el/7/$basearch
+repo_gpgcheck=0
+gpgcheck={{ GPGCHECK }}
+enabled=1
+gpgkey=https://packages.gitlab.com/gpg.key
