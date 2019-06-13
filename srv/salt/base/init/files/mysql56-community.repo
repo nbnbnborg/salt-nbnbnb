@@ -1,7 +1,7 @@
 [mysql56-community]
 name=MySQL 5.6 Community Server
-baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/mysql56-community
-#baseurl=http://repo.mysql.com/yum/mysql-5.6-community/el/7/$basearch/
+baseurl=http://xt-cobbler-yum-01.nbnbnb.org/mysql56-community
+        http://repo.mysql.com/yum/mysql-5.6-community/el/7/$basearch/
 failovermethod=priority
 enabled=1
 gpgcheck=0

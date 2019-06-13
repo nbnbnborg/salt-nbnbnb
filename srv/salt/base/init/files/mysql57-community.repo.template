@@ -1,7 +1,7 @@
 [mysql57-community]
 name=MySQL 5.7 Community Server
-baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/mysql57-community
-# baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
+baseurl=http://xt-cobbler-yum-01.nbnbnb.org/mysql57-community
+        http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
 failovermethod=priority
 enabled=1
 gpgcheck={{ GPGCHECK }}

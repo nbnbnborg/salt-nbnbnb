@@ -1,7 +1,7 @@
 [nginx]
 name=nginx repo
-baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/nginx
-#baseurl=http://nginx.org/packages/centos/7/$basearch/
+baseurl=http://xt-cobbler-yum-01.nbnbnb.org/nginx
+        http://nginx.org/packages/centos/7/$basearch/
 failovermethod=priority
 gpgcheck=0
 enabled=1

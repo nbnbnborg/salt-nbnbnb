@@ -1,6 +1,6 @@
 [{{ SALTSTACK_VERSION }}]
 name={{ SALTSTACK_VERSION }}
-baseurl=http://xt_cobbler_dhcp-pxe-dns-yum_01.nbnbnb.org/{{ SALTSTACK_VERSION }}
+baseurl=http://xt-cobbler-yum-01.nbnbnb.org/{{ SALTSTACK_VERSION }}
 
 #[saltstack-2018.3]
 #name=saltstack-2018.3

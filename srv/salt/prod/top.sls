@@ -1,23 +1,23 @@
 # salt '*' state.highstate saltenv='prod'
 prod:
-  'xt_lb4l_lvs_*.example.com':
+  'xt-lb4l-lvs-*.example.com':
     - lvs.service
-  'xt_lb7l_haproxy_*.example.com':
+  'xt-lb7l-haproxy-*.example.com':
     - haproxy.service
-  'xt_web_nginx_*.example.com':
+  'xt-web-nginx-*.example.com':
     - nginx.service
     - php.service
-  'xt_db_mysql_*.example.com':
+  'xt-db-mysql-*.example.com':
     - mysql.service
-  'xt_cache_redis_*.example.com':
+  'xt-cache-redis-*.example.com':
     - redis.service
-  'xt_*_glusterfs_*.example.com':
+  'xt-*-glusterfs-*.example.com':
     - gluster.service
-  'xt_monitor_zabbix_*.example.com':
+  'xt-monitor-zabbix-*.example.com':
     - zabbix.service
-  'xt_controller_salt_02.example.com':
+  'xt-controller-salt-02.example.com':
     - saltstack.service
-  'xt_fortress_jumpserver_*.example.com':
+  'xt-fortress-jumpserver-*.example.com':
     - jumpserver.service
   'noname':
     - openvpn.service

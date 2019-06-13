@@ -1,6 +1,10 @@
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
+# 192.168.56.11  linux-node1.nbnbnb.org
+# 192.168.56.12  linux-node2.nbnbnb.org
+# 192.168.56.13  linux-node3.nbnbnb.org
+
 192.168.56.1   windows10pro.nbnbnb.org
 192.168.56.2   vmwaregateway.nbnbnb.org
 192.168.56.3   xt-lb4l-lvs-01.nbnbnb.org
@@ -233,8 +237,8 @@
 192.168.56.230 xt-monitor-zabbix-02.nbnbnb.org
 192.168.56.231 xt-fortress-vpn-01.nbnbnb.org
 192.168.56.232 xt-fortress-vpn-02.nbnbnb.org
-192.168.56.233 xt-cicd-gitlab-jenkins-01.nbnbnb.org
-192.168.56.234 xt-cicd-gitlab-jenkins-02.nbnbnb.org
+192.168.56.233 xt-cicd-jenkins-01.nbnbnb.org
+192.168.56.234 xt-cicd-jenkins-02.nbnbnb.org
 192.168.56.235 xt-docker-harbor-01.nbnbnb.org
 192.168.56.236 xt-docker-harbor-02.nbnbnb.org
 
@@ -256,5 +260,5 @@
 # 192.168.56.250 .nbnbnb.org
 # 192.168.56.251 .nbnbnb.org
 # 192.168.56.252 .nbnbnb.org
-192.168.56.253 xt-cobbler-dhcp-pxe-dns-yum-02.nbnbnb.org
-192.168.56.254 xt-cobbler-dhcp-pxe-dns-yum-01.nbnbnb.org
+192.168.56.253 xt-cobbler-yum-02.nbnbnb.org
+192.168.56.254 xt-cobbler-yum-01.nbnbnb.org
