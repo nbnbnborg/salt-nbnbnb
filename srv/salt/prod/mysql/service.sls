@@ -8,7 +8,7 @@ include:
     - group: mysql
     - mode: 644
 
-mysql-service:
+mysql service:
   service.running:
     - name: mysqld
     - enable: True
