@@ -27,6 +27,7 @@ php-install:
       # nginx & httpd require
       - php72u-fpm-nginx
       - php72u-fpm-httpd
+    #- fromrepo: "ius" etc....., so can not to only ius.
     - require:
       - pkg: "yum-plugin-replace install"
 #      - cmd: "yum replace php-common --replace-with php72u-common -y"
