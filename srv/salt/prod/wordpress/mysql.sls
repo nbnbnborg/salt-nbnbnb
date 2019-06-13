@@ -1,6 +1,10 @@
 #include:
 #  - mysql.service
 
+saltstack mysql require MySQL-python:
+  pkg.installed:
+    - name: MySQL-python
+
 wordpress database create:
   mysql_database.present:
     - name: wordpress

@@ -19,7 +19,7 @@
 #      - ignore_files
 
 include:
-  - init.repo_base
+#  - init.repo_base
   - init.repo_epel
   - init.repo_zabbix
   - init.repo_saltstack

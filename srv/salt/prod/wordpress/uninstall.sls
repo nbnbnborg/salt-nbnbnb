@@ -10,3 +10,5 @@ soft uninstall:
       - php-fedora-autoloader
       - php-getid3
       - php-simplepie
+      # salt require
+      - MySQL-python
