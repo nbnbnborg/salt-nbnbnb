@@ -1,7 +1,8 @@
 /etc/gitlab/gitlab.rb:
   file.managed:
     - name: /etc/gitlab/gitlab.rb
-    - source: salt://etc/gitlab/gitlab.rb.template
+    - source: salt://gitlab/gitlab.rb.template
+    - template: jinja
     - user: root
     - group: root
     - mode: 600
@@ -11,7 +12,8 @@
 /opt/gitlab/embedded/service/gitlab-rails/config/gitlab.yml:
   file.managed:
     - name: /opt/gitlab/embedded/service/gitlab-rails/config/gitlab.yml
-    - source: salt://etc/gitlab/gitlab.yml.template
+    - source: salt://gitlab/gitlab.yml.template
+    - template: jinja
     - user: root
     - group: root
     - mode: 644

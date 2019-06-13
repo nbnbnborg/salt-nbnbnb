@@ -1,13 +1,8 @@
 include:
-  - soft.install
-  - soft.conf
+  - gitlab.install
+  - gitlab.conf
 
-soft service:
-  service.running:
-    - name: soft
-    - enable: True
-    - reload: True
-    - require:
-      - file: /etc/soft.conf
-    - watch:
-      - file: /etc/soft.conf
+gitlab-ce service:
+  cmd.run:
+    - name: "gitlab-ctl reconfigure && gitlab-ctl start"
+ 

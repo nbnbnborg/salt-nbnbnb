@@ -1,4 +1,3 @@
-soft stop:
-  service.dead:
-    - name: soft
-    - enable: False
+gitlab-ce stop:
+  cmd.run:
+    - name: "gitlab-ctl stop"
