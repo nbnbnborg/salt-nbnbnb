@@ -33,6 +33,7 @@ mysqld_secure:
     - mode: 640
     - default:
       PASSWORD: {{ MYSQL_ROOT_PASSWORD }}
+      MYSQL_UNIX_SOCK: /var/lib/mysql/mysql.sock
 
 restart_minion_for_mysql:
   service.running:

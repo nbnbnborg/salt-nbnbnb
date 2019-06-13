@@ -26,4 +26,4 @@ salt 'linux-node2.example.com' state.sls mysql.rpm-uninstall saltenv='prod' -t 6
 salt 'linux-node2.example.com' state.sls php.stop saltenv='prod' -t 300
 salt 'linux-node2.example.com' state.sls php.uninstall saltenv='prod' -t 300
 
-
+salt 'linux-node2.example.com' state.sls wordpress.uninstall saltenv='prod' -t 100

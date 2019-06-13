@@ -24,6 +24,9 @@ php-install:
       - php72u-pecl-apcu
       - php72u-pecl-memcached
       - php72u-ioncube-loader
+      # nginx & httpd require
+      - php72u-fpm-nginx
+      - php72u-fpm-httpd
     - require:
       - pkg: "yum-plugin-replace install"
 #      - cmd: "yum replace php-common --replace-with php72u-common -y"
