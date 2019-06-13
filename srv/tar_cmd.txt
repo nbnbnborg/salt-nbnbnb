@@ -4,7 +4,8 @@ cd -
 sz ~/srv${date +"%Y-%m-%d"}.tar.gz
 
 cd /
-tar -cvf ~/srv`date +"%Y-%m-%d-%H"`.tar.gz srv
+find /root -type f -name 'srv*.tar.gz'|xargs rm -rf
+tar -cvf ~/srv`date +"%Y-%m-%d-%H"`.tar.gz srv --exclude="srv/salt/prod/harbor/harbor-offline-installer-v1.7.5.tgz"
 cd -
 sz ~/srv`date +"%Y-%m-%d-%H"`.tar.gz
 
