@@ -2,24 +2,14 @@ include:
   - mysql.rpm-install
   - mysql.service
 
+{% set MYSQLADMIN_ROOT = "/usr/bin/" %}
+mysqladmin add root password:
+  cmd.run:
+    - name: {{ MYSQLADMIN_ROOT }}mysqladmin -u root -h localhost password 'x92t@&jc93xs'
+    - unless: mysql -uroot -hlocalhost -p"x92t@&jc93xs" -e "show databases;"
+
 #python-mysqldb:
 #  pkg.installed
-
-#mysql security init:
-#  cmd.script:
-#    - name: masterscript
-#    - source: salt://path/to/masterscript
-#    - cwd: /
-#    - stateful:
-#      - test_name: masterscript test
-
-#https://docs.saltstack.com/en/latest/ref/modules/all/salt.modules.mysql.html#module-salt.modules.mysql
-#/etc/salt/minion file append mysql conf:
-#  file.append:
-#    - name: /etc/salt/minion
-#    - template: jinja
-#    - source:
-#      - salt://mysql/mysql-minion.template
 
 /etc/salt/minion.d/mysql-minion.conf init:
   file.managed:
@@ -32,12 +22,6 @@ te
     - mode: 640
     - default:
       PASSWORD: XXXXXXXX
-#    - require:
-#    #      - service: mysql
-
-# if conf /etc/salt/minion.d/mysql-minion.conf twice,
-# i need restart minion twice,
-# this sls well not run.
 
 ##You can set a password for root accounts.
 
