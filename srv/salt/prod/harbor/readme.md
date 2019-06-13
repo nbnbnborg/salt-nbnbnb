@@ -37,3 +37,4 @@ curl http://xt_docker_harbor_01.nbnbnb.org -u admin:harbor.nbnbnb
 [root@xt_docker_harbor_01 /opt/harbor]# docker login http://xt_docker_harbor_01.nbnbnb.org:80 -u admin -p harbor.nbnbnb
 WARNING! Using --password via the CLI is insecure. Use --password-stdin.
 Error response from daemon: Get https://xt_docker_harbor_01.nbnbnb.org:80/v2/: http: server gave HTTP response to HTTPS client
+

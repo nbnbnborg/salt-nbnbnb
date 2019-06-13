@@ -1,4 +1,8 @@
-soft uninstall:
+kubernetes uninstall:
   pkg.removed:
     - names:
-      - soft
+      - kubectl
+      - kubelet
+      - kubeadm
+# v 1.14.1
+

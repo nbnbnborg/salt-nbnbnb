@@ -237,16 +237,19 @@
 192.168.56.234 xt_cicd_gitlab-jenkins_02.nbnbnb.org
 192.168.56.235 xt_docker_harbor_01.nbnbnb.org
 192.168.56.236 xt_docker_harbor_02.nbnbnb.org
-192.168.56.237 xt_kubernetes_master_01.nbnbnb.org
-192.168.56.238 xt_kubernetes_master_02.nbnbnb.org
-192.168.56.239 xt_kubernetes_master_03.nbnbnb.org
-192.168.56.240 xt_kubernetes_master_04.nbnbnb.org
-192.168.56.241 xt_kubernetes_node_01.nbnbnb.org
-192.168.56.242 xt_kubernetes_node_02.nbnbnb.org
-192.168.56.243 xt_kubernetes_node_03.nbnbnb.org
-192.168.56.244 xt_kubernetes_node_04.nbnbnb.org
-192.168.56.245 xt_kubernetes_node_05.nbnbnb.org
-192.168.56.246 xt_kubernetes_node_06.nbnbnb.org
+
+# a DNS-1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
+
+192.168.56.237 xt-kubernetes-master-01.nbnbnb.org
+192.168.56.238 xt-kubernetes-master-02.nbnbnb.org
+192.168.56.239 xt-kubernetes-master-03.nbnbnb.org
+192.168.56.240 xt-kubernetes-master-04.nbnbnb.org
+192.168.56.241 xt-kubernetes-node-01.nbnbnb.org
+192.168.56.242 xt-kubernetes-node-02.nbnbnb.org
+192.168.56.243 xt-kubernetes-node-03.nbnbnb.org
+192.168.56.244 xt-kubernetes-node-04.nbnbnb.org
+192.168.56.245 xt-kubernetes-node-05.nbnbnb.org
+192.168.56.246 xt-kubernetes-node-06.nbnbnb.org
 # 192.168.56.247 .nbnbnb.org
 # 192.168.56.248 .nbnbnb.org
 # 192.168.56.249 .nbnbnb.org

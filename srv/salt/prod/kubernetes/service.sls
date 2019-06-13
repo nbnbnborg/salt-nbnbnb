@@ -1,13 +1,15 @@
 include:
-  - soft.install
-  - soft.conf
+  - kubernetes.install
+  #- soft.conf
 
-soft service:
+kubelet service:
   service.running:
-    - name: soft
+    - name: kubelet
     - enable: True
     - reload: True
-    - require:
-      - file: /etc/soft.conf
-    - watch:
-      - file: /etc/soft.conf
+    #- require:
+    #  - file: /etc/soft.conf
+    #- watch:
+    #  - file: /etc/soft.conf
+
+

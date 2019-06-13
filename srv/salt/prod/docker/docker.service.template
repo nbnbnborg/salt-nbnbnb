@@ -14,8 +14,11 @@ Type=notify
 {% if grains['fqdn'].startswith('xt_docker_harbor') %}
 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --registry-mirror={{ REGISTRY_MIRROR }}
 {% else %}
-ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --registry-mirror={{ REGISTRY_MIRROR }} --insecure-registries={{ INSECURE_REGISTRIES }}
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --registry-mirror={{ REGISTRY_MIRROR }} --insecure-registry={{ INSECURE_REGISTRIES }}
 {% endif %}
+
+# if docker change iptables -t FORWARD DORP
+#ExecStartPost=/usr/sbin/iptables -p FORWARD ACCEPT
 
 ExecReload=/bin/kill -s HUP $MAINPID
 TimeoutSec=0

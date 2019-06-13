@@ -1,4 +1,4 @@
-soft stop:
+kubelet stop:
   service.dead:
-    - name: soft
+    - name: kubelet
     - enable: False
