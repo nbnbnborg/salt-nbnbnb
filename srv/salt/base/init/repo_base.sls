@@ -1,7 +1,7 @@
 base 7 repo:
   file.managed:
-    - name: /etc/yum.repos.d/base.repo.template
-    - source: salt://init/files/base.repo
+    - name: /etc/yum.repos.d/base.repo
+    - source: salt://init/files/base.repo.template
     - template: jinja
     - user: root
     - group: root

@@ -7,8 +7,8 @@
 
 mysql57-community repo:
   file.managed:
-    - name: /etc/yum.repos.d/mysql57-community.repo.template
-    - source: salt://init/files/mysql57-community.repo
+    - name: /etc/yum.repos.d/mysql57-community.repo
+    - source: salt://init/files/mysql57-community.repo.template
     - template: jinja
     - user: root
     - group: root

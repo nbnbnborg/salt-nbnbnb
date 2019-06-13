@@ -31,8 +31,10 @@ include:
   #- init.repo_replace_url
 
 yum clean all && yum makecache:
+  module.run:
+  - name: pkg.refresh_db
   # Version 2014.1
-  pkg.clean_metadata
+  # pkg.clean_metadata
   # Version 2019.2
   # pkg.refresh_db
 
