@@ -1,0 +1,7 @@
+#return: mysql
+master_job_cache: mysql
+mysql.host: '192.168.56.11'
+mysql.dbuser: 'salt'
+mysql.pass: 'salt'
+mysql.db: 'salt'
+mysql.port: 3306

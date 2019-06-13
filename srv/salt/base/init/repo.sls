@@ -30,9 +30,14 @@ include:
   # Special case,i in company.
   #- init.repo_replace_url
 
-yum clean all && yum makecache:
-  module.run:
-  - name: pkg.refresh_db
+make yum cache:
+  cmd.run:
+    - name: yum clean all && yum makecache
+    - unless: test ${test -f /var/cache/yum/x86_64/7/timedhosts.txt} = 0
+
+#yum clean all && yum makecache:
+#  module.run:
+#  - name: pkg.refresh_db
   # Version 2014.1
   # pkg.clean_metadata
   # Version 2019.2

@@ -1,3 +1,5 @@
+100% done.for 2 pleace environment.
+
 program start at env_init.sls
 1	dns	file.managed	dns.sls
 2	firewall	service.dead	firewall.sls
@@ -16,7 +18,7 @@ program start at env_init.sls
 #salt 'linux-node2*' sys.state_doc service
 #salt 'linux-node2*' sys.doc sys.doc
 
-#salt 'linux-node1.example.com' state.sls saltenv='base' init.python27
+#salt 'linux-node1.example.com' state.sls saltenv='base' init.python27 test="True"
 #systemctl restart salt-master
 #systemctl restart salt-minion
 
@@ -36,8 +38,11 @@ salt 'linux-node3.example.com' state.sls init.sysctl saltenv='base'
 salt 'linux-node3.example.com' state.sls init.user saltenv='base'
 
 # Now,above code is equal to follow.
-salt 'linux-node3.example.com' state.sls init.env_init saltenv='base' -t 600
+salt 'linux-node2.example.com' state.sls init.env_init saltenv='base' -t 600
+# when in company,well has 7 Failed,please pass it.bacause of yum cache error to make.
 # Special case,i in company.
-salt 'linux-node3.example.com' state.sls init.repo_replace_url saltenv='base' -t 300
-
+salt 'linux-node2.example.com' state.sls init.repo_replace_url saltenv='base' -t 300
+# Remedy 7 Failed function.
+salt 'linux-node2.example.com' state.sls init.repo_zabbix saltenv='base' -t 600
+salt 'linux-node2.example.com' state.sls init.repo_replace_url saltenv='base' -t 300
 

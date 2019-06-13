@@ -9,7 +9,7 @@ chrony conf:
     - template: jinja
     - default:
       # remember replace ip
-      CHRONY_SERVER: 192.168.56.11
+      CHRONY_SERVER: {{ pillar['chrony']['server_ip'] }}
 
 chrony service:
   service.running:

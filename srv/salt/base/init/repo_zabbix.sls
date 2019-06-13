@@ -6,7 +6,7 @@ zabbix repo:
     - user: root
     - group: root
     - mode: 644
-    - default:
-      ZABBIX_COBBLER_COMMENT: {{ pillar['zabbix_repo_server']['ZABBIX_COBBLER_COMMENT'] }}
-      ZABBIX_ALI_COMMENT: {{ pillar['zabbix_repo_server']['ZABBIX_ALI_COMMENT'] }}
+    - defaults:
+      #ZABBIX_COBBLER_COMMENT: "#" #if use grains['fqdn'],& conf pillar, when jinja render repo_url to be "None",fuck.
+      ZABBIX_ALI_COMMENT: "#" #if use grains['fqdn'],& conf pillar, when jinja render repo_url to be "None",fuck.
       GPGCHECK: 0
